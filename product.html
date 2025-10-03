@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-details {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .product-img {
+      height: 89vh;
+      margin: 0 auto;
+      width: 50vw;
+      position: sticky;
+      top: 10vh;
+    }
+
+    .product-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .details {
+      width: 45vw;
+    }
+
+    .detail-container {
+      margin: 50px 50px;
+    }
+
+    .details h1 {
+      font-size: 40px;
+      color: rgb(30, 30, 30);
+    }
+
+    .product-price {
+      padding: 30px 0;
+      font-size: 25px;
+    }
+
+    .p-description {
+      font-size: 19px;
+      padding: 10px 0;
+      border-top: 2px solid gainsboro;
+      color: rgb(50, 50, 50);
+    }
+
+    .p-description h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 20px;
+      padding: 10px 0;
+    }
+
+    .details button {
+      width: 90%;
+      font-size: 23px;
+      font-weight: 500;
+      margin: 10px auto;
+      padding: 15px 15px;
+      color: rgb(47, 47, 47);
+      border: 2px solid rgb(129, 129, 129);
+    }
+
+    .button button{
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .button :nth-child(1) {
+      background-color: rgb(255, 255, 255);
+    }
+    .button :nth-child(2) {
+      background-color: rgb(43, 43, 43);
+    }
+
+
+    button a {
+      text-decoration: none;
+      color: rgb(67, 66, 66);
+    }
+
+    @media(max-width:650px) {
+      .product-details {
+        flex-direction: column;
+      }
+
+      .product-img {
+        width: 100vw;
+        height: 100vw;
+        margin: auto;
+        position: static;
+      }
+
+      .details h1 {
+        font-size: 30px;
+      }
+
+      .details {
+        width: 90vw;
+        margin: 40px auto;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="header-section">
+
+  </section>
+  <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+  <div class="product-details">Loading...</div>
+
+  <script>
+
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("Products");
+
+    fetch("data/products.json")
+      .then(res => res.json())
+      .then(data => {
+        const product = data.find(p => p.Products == productId);
+        const container = document.querySelector(".product-details");
+
+        if (!product) {
+          container.innerHTML = "<p>Product not found</p>";
+          return;
+        }
+
+        container.innerHTML = `
+    <div class="product-img">
+      <img src="${product.image}" alt="${product.name}">
+    </div>
+    <div class="details">
+      <div class="detail-container">
+        <h1>
+        ${product.name}
+        </h1>
+        <div class="product-price">
+          <p style="text-decoration: line-through; color: rgba(68, 68, 68, 0.684); font-size: 19px;">Rs : ${product.price2}</p>
+          <p>Rs : ${product.price}</p>
+        </div>
+        <div class="p-description">
+          <h2>Details:</h2>
+           <p>
+            ${product.description}
+          </p>
+          <h2>Note:</h2>
+          <p>
+            The above picture is the original picture of the product without any filters and editing. There might be a very slight difference in color due to different screen resolutions and contrast levels.
+          </p>
+        </div>
+        <div class="button">
+         <button><a href="https://wa.me/923045811000?text=🛒 _Product Details_%0A━━━━━━━━━━━━━━%0A %0A📦 *Name*: ${product.name}%0A%0A💰 *Price*: Rs. ${product.price}%0A%0A🔗 *Link*: http://127.0.0.1:5500/product.html?Products=${product.id}%0A%0A ━━━━━━━━━━━━━━ %0A%0A%0A*Customer Name*: """ 
+  target="_blank"> Chat on Whatsapp</a></button>
+         <a href="https://wa.me/923045811000?text=🛒 _Product Details_%0A━━━━━━━━━━━━━━%0A %0A📦 *Name*: ${product.name}%0A%0A💰 *Price*: Rs. ${product.price}%0A%0A🔗 *Link*: http://127.0.0.1:5500/product.html?Products=${product.id}%0A%0A ━━━━━━━━━━━━━━ %0A%0A%0A*Customer Name*: """ 
+  target="_blank"><button> Buy Now</button></a>
+        </div>
+      </div>
+    </div>
+        `;
+        document.title = product.name + " | Blazas"
+        /*
+        ==============
+        add schema
+        *=============
+        */
+        const schema = {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": product.name,
+          "image": product.image,
+          "description": product.description || "No description available",
+          "sku": product.Products,
+          "offers": {
+            "@type": "Offer",
+            "url": window.location.href,
+            "priceCurrency": "PKR",
+            "price": product.price,
+            "availability": "https://schema.org/InStock"
+          }
+        };
+
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.text = JSON.stringify(schema);
+        document.head.appendChild(script);
+      })
+      .catch(err => {
+        console.error("Error loading product:", err);
+        document.getElementById("product-details").innerHTML = "<p>Error loading product.</p>";
+      });
+
+    /*
+    ====================
+    add meta description
+    ====================
+    */
+
+    function addMetaDescription(product) {
+      let desc = product.description;
+
+      if (!desc || desc.trim() === "") {
+        desc = `Buy ${product.name} in ${product.category} for only PKR ${product.price}. 
+            Available now at Blazas.`;
+      }
+
+      let metaTag = document.querySelector('meta[name="description"]');
+      if (!metaTag) {
+        metaTag = document.createElement("meta");
+        metaTag.name = "description";
+        document.head.appendChild(metaTag);
+      }
+
+      metaTag.content = desc;
+    }
+
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie policy - Blazas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+   
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+    <section class="header-section">
+
+  </section>
+  <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+
+ <div class="container">
+    <h1>Cookie Policy</h1>
+    <p><strong>Effective Date:</strong> 2 Oct, 2025</p>
+
+    <h2>What Are Cookies?</h2>
+    <p>Cookies are small text files stored on your device that help improve your browsing experience.</p>
+
+    <h2>How We Use Cookies</h2>
+    <ul>
+      <li>To analyze website traffic.</li>
+      <li>To show relevant ads via Google AdSense.</li>
+      <li>To store user preferences.</li>
+    </ul>
+
+    <h2>Managing Cookies</h2>
+    <p>You can disable cookies in your browser settings. However, some features of the site may not work properly without them.</p>
+  </div>
+
+
+  <section class="footer-section">
+
+  </section>
+  <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+  
+</body>
+</html>

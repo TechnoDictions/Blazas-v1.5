@@ -1,0 +1,362 @@
+[
+  {
+    "Products": 1,
+    "name": "Bracelet with name and Panda ",
+    "price": "320",
+    "price2": "400",
+    "image": "../img/Bracelets/name/b (1).jpg",
+    "category": "name",
+    "description": "The bracelet is made up of glossy black beads and chiny crack beads that give bracelet a unique look. It also has name letters and a beautiful charm of a Cute Panda"
+  },
+  {
+    "Products": 2,
+    "name": "White beads Bracelet with shell charm",
+    "price": "250",
+    "price2": "350",
+    "image": "../img/Bracelets/charms/b (1).jpg",
+    "category": "Charms",
+    "description": "Embrace serenity and elegance with our handcrafted beaded bracelet. This stunning piece features smooth, polished beads in a luminous white hue, reminiscent of moonlight.<br><br> The bracelet is adorned with a delicate gold-toned charm, meticulously crafted into a seashell with a captivating pearlescent center, symbolizing purity and inner harmony. Perfect for adding a touch of sophisticated charm to any outfit, this bracelet is a timeless accessory that radiates gentle beauty and grace."
+  },
+  {
+    "Products": 3,
+    "name": "Black Beads BTS Bracelet",
+    "price": "250",
+    "price2": "320",
+    "image": "../img/Bracelets/name/b (2).jpg",
+    "category": "name",
+    "description": "This stylish bracelet features sleek, polished obsidian beads, creating a bold, dark look. The bracelet is personalized with white acrylic cube beads that spell out BTS with a heart bead in the middle, adding a pop of contrast and a unique touch. This accessory blends classic elegance with modern, expressive style."
+  },
+  {
+    "Products": 4,
+    "name": "Bracelet of Skyblue Beads with charms",
+    "price": "280",
+    "price2": "350",
+    "image": "../img/Bracelets/charms/b (2).jpg",
+    "category": "Charms",
+    "description": "This beautiful bracelet captures the essence of the ocean with its polished, light blue beads that vary slightly in shade, creating a dynamic, watery effect. A delicate, gold-toned chain dangles from the bracelet, holding a stunning charm shaped like a butterfly with vibrant blue wings. This piece combines a serene aesthetic with a touch of whimsical elegance, making it a perfect accessory for any occasion."
+  },
+  {
+    "Products": 5,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/name/b (3).jpg",
+    "category": "name",
+    "description": ""
+  },
+  {
+    "Products": 6,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (3).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 7,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/name/b (4).jpg",
+    "category": "name",
+    "description": ""
+  },
+  {
+    "Products": 8,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (4).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 9,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (5).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 10,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (6).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 11,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (7).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 12,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/simple/b (1).jpg",
+    "category": "simple",
+    "description": ""
+  },
+  {
+    "Products": 13,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (8).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 14,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (9).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 15,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/simple/b (2).jpg",
+    "category": "simple",
+    "description": ""
+  },
+  {
+    "Products": 16,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (10).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 17,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (11).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 18,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/simple/b (3).jpg",
+    "category": "simple",
+    "description": ""
+  },
+  {
+    "Products": 19,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/charms/b (12).jpg",
+    "category": "Charms",
+    "description": ""
+  },
+  {
+    "Products": 20,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/simple/b ().jpg",
+    "category": "simple",
+    "description": ""
+  },
+  {
+    "Products": 21,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 22,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 23,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 24,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 25,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 26,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 27,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 28,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 29,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 30,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 31,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 32,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 33,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 34,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 35,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 36,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 37,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 38,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 39,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  },
+  {
+    "Products": 40,
+    "name": "",
+    "price": "",
+    "price2": "",
+    "image": "../img/Bracelets/",
+    "category": "",
+    "description": ""
+  }
+]

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+  :root {
+    --border-color: rgb(222, 222, 222);
+  }
+
+  .product-heading {
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 20px;
+  }
+
+  .products-count {
+
+    text-align: center;
+    position: sticky;
+    top: 100px;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .h-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .psp {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /*
+============
+for side
+============
+*/
+  aside {
+    max-height: 70vh;
+    width: 20vw;
+    position: sticky;
+    top: 100px;
+    overflow-y: scroll;
+  }
+
+  aside::-webkit-scrollbar {
+    width: 2.4px;
+  }
+
+  aside::-webkit-scrollbar-track {
+    background: #dddddd;
+  }
+
+  aside::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: .1px;
+  }
+
+  aside::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  aside svg {
+    height: 15px;
+    transition: transform .5s ease;
+  }
+
+  .sidebar {
+    padding: 10px;
+    margin: 10px;
+
+  }
+
+  .products-block {
+    flex: 1;
+    width: 70vw;
+    height: auto;
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+  }
+
+  .option {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+  }
+
+  .option.open {
+    max-height: 300px;
+    padding: 10px;
+    margin: 2px;
+  }
+
+  .options {
+    padding: 10px;
+  }
+
+  .options:hover {
+    background-color: rgb(239, 239, 239);
+  }
+
+  .svg-turn {
+    transform: rotate(180deg);
+  }
+
+  /*
+  ================
+  for price range
+  ================
+  */
+  .price-selector {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 100%;
+    font-size: 12px;
+    max-width: 95%;
+  }
+
+  .section-title {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slider-container {
+    position: relative;
+    height: 5px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    margin: 30px 0;
+  }
+
+  .slider-track {
+    height: 100%;
+    position: absolute;
+    background: #b4b4b4;
+    border-radius: 5px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 5px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: #565656;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 2px 6px rgba(159, 159, 159, 0.5);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 2px 6px rgba(75, 75, 75, 0.5);
+    border: 3px solid white;
+  }
+
+  .price-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    padding: 5px 5px;
+    flex: 1;
+  }
+
+  .price-label {
+    color: #717171;
+    font-weight: 300;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  .price-value {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 300;
+    color: #606060;
+    width: 100%;
+    outline: none;
+  }
+
+  .slider-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+    color: #000000;
+    font-size: 10px;
+  }
+
+  .apply-btn {
+    background: #a1a1a1;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    width: 98%;
+  }
+
+  .apply-btn:hover {
+    background: #c7c7c7;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 600px) {
+    .price-inputs {
+      flex-direction: column;
+    }
+
+    .price-box {
+      width: 100%;
+    }
+  }
+
+  /*
+  ==============
+  products-block
+  ==============
+  */
+
+  .prs-container {
+    margin: 15px;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 30px;
+  }
+
+  .prs {
+   
+
+  }
+
+  .prs-img {
+    height: 280px;
+    width: 300px;
+    margin: 10px 0;
+    display: flex;
+    overflow: hidden;
+    background-color: #e7e7e7;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .prs a {
+    text-decoration: none;
+    color: #000000;
+  }
+
+  .prs-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: none;
+    transition: all 2s ease;
+    object-position: center center;
+    animation: fadeIn .5s ease-in-out forwards;
+  }
+
+  .prs-img img:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .prs-p {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media(max-width:1200px) {
+    .prs-img{
+      height: 230px;
+      width: 250px;
+    }
+
+  }
+
+  @media(max-width:1000px) {
+    .prs-container{
+      grid-template-columns: 1fr 1fr;
+    }
+  
+  }
+  @media(max-width:800px){
+    aside{
+      display: none;
+    }
+  }
+   @media(max-width:550px) {
+   
+    .prs-img{
+      height: 40vw;
+      width: 43vw;
+
+    }
+    .prs-p{
+      font-size: 3.5vw;
+    }
+    
+    .product-heading {
+    font-size: 20px;
+    text-align: center;
+    margin: 15px 15px;
+  }
+
+  .products-count {
+    top: 80px;
+    font-size: 16px;
+    padding: 18px;
+  }
+  }
+</style>
+
+<body>
+  <section class="header-section">
+    
+  </section>
+   <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt'); 
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+
+
+ 
+  <!--
+  ========
+  Products
+  ========
+  -->
+  <section class="h-section">
+    <div class="product-heading">
+      <h1>Products</h1>
+    </div>
+    <div class="products-count">
+      <div id="results"></div>
+    </div>
+  </section>
+  <section class="main-section">
+    <div class="product-section-parent psp">
+
+      <aside>
+        <div class="sidebar">
+
+          <div class="select s1">
+            <p>Availibilty</p>
+            <svg aria-hidden="true" focusable="false" fill="none" class="icon icon-chevron-down" viewBox="0 0 10 10">
+              <path d="m1 3 4 4 4-4" stroke="currentColor" stroke-linecap="square"></path>
+            </svg>
+          </div>
+          <div class="option">
+            <div class="options s1o1">Instoke only</div>
+          </div>
+
+          <div class="select s2">
+            <p>Price</p>
+            <svg aria-hidden="true" focusable="false" fill="none" class="icon icon-chevron-down" viewBox="0 0 10 10">
+              <path d="m1 3 4 4 4-4" stroke="currentColor" stroke-linecap="square"></path>
+            </svg>
+          </div>
+          <div class="option">
+            <div class="price-selector">
+              <div class="section-title">Price Range</div>
+
+              <div class="slider-container">
+                <div class="slider-track" id="slider-track"></div>
+                <input type="range" min="75" max="5000" value="75" id="min-slider">
+                <input type="range" min="75" max="5000" value="3999" id="max-slider">
+              </div>
+
+              <div class="slider-values">
+                <span>Rs 75</span>
+                <span>Rs 5000</span>
+              </div>
+
+              <div class="price-inputs">
+                <div class="price-box">
+                  <span class="price-label">Min Price:</span>
+                  <span class="currency">Rs</span>
+                  <input type="text" class="price-value" id="min-value" value="75">
+                </div>
+
+                <div class="price-box">
+                  <span class="price-label">Max Price:</span>
+                  <span class="currency">Rs</span>
+                  <input type="text" class="price-value" id="max-value" value="3,999">
+                </div>
+              </div>
+
+              <button class="apply-btn">Apply Price Filter</button>
+            </div>
+
+          </div>
+      </aside>
+
+      <!--
+      ==============
+      product-block
+      ==============
+      -->
+      <div class="products-block">
+        <div class="prs-container">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="footer-section">
+    
+  </section>
+   <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt'); 
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+       
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+  <script src="script.js"></script>
+  <script>
+     
+    /*
+    ===========
+    for toogle
+    ===========
+    */
+    let selects = document.querySelectorAll(".select");
+
+    selects.forEach(select => {
+      select.addEventListener("click", () => {
+        let option = select.nextElementSibling;
+        option.classList.toggle("open");
+        let svg = select.querySelector("svg");
+        svg.classList.toggle("svg-turn");
+      });
+    });
+    /*
+    ===============
+    for price range
+    ===============
+    */
+    document.addEventListener('DOMContentLoaded', function () {
+      const minSlider = document.getElementById('min-slider');
+      const maxSlider = document.getElementById('max-slider');
+      const minValue = document.getElementById('min-value');
+      const maxValue = document.getElementById('max-value');
+      const sliderTrack = document.getElementById('slider-track');
+      const applyBtn = document.querySelector('.apply-btn');
+
+      updateSliderTrack();
+
+      function updateSliderTrack() {
+        const minVal = parseInt(minSlider.value);
+        const maxVal = parseInt(maxSlider.value);
+        const min = parseInt(minSlider.min);
+        const max = parseInt(minSlider.max);
+
+        const percent1 = (minVal - min) / (max - min) * 100;
+        const percent2 = (maxVal - min) / (max - min) * 100;
+
+        sliderTrack.style.left = percent1 + "%";
+        sliderTrack.style.width = (percent2 - percent1) + "%";
+
+        minValue.value = formatCurrency(minVal);
+        maxValue.value = formatCurrency(maxVal);
+      }
+
+      function formatCurrency(value) {
+        return value.toLocaleString('en-IN');
+      }
+
+      function parseCurrency(value) {
+        return parseInt(value.replace(/,/g, ''));
+      }
+
+      minSlider.addEventListener('input', function () {
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        if (minVal > maxVal) {
+          minSlider.value = maxVal;
+          minVal = maxVal;
+        }
+
+        updateSliderTrack();
+      });
+
+      maxSlider.addEventListener('input', function () {
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        if (maxVal < minVal) {
+          maxSlider.value = minVal;
+          maxVal = minVal;
+        }
+
+        updateSliderTrack();
+      });
+
+      minValue.addEventListener('change', function () {
+        let value = parseCurrency(this.value);
+        if (isNaN(value)) value = 1000;
+
+        value = Math.max(1000, Math.min(5000, value));
+        minSlider.value = value;
+
+        updateSliderTrack();
+      });
+
+      maxValue.addEventListener('change', function () {
+        let value = parseCurrency(this.value);
+        if (isNaN(value)) value = 5000;
+
+        value = Math.max(1000, Math.min(5000, value));
+        maxSlider.value = value;
+
+        updateSliderTrack();
+      });
+
+      minValue.addEventListener('blur', function () {
+        this.value = formatCurrency(parseCurrency(this.value));
+      });
+
+      maxValue.addEventListener('blur', function () {
+        this.value = formatCurrency(parseCurrency(this.value));
+      });
+
+      minValue.addEventListener('focus', function () {
+        this.value = this.value.replace(/,/g, '');
+      });
+
+      maxValue.addEventListener('focus', function () {
+        this.value = this.value.replace(/,/g, '');
+      });
+      applyBtn.addEventListener('click', function () {
+        this.textContent = '✓ Applied!';
+
+        setTimeout(() => {
+          this.textContent = 'Apply Price Filter';
+        }, 2000);
+      });
+    });
+  </script>
+  <script src="data/data.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer - Blazas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+   
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+    <section class="header-section">
+
+  </section>
+  <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+
+  <div class="container">
+    <h1>Disclaimer</h1>
+    <p><strong>Effective Date:</strong> 2 Oct, 2025</p>
+
+    <h2>General Information</h2>
+    <p>The content on <strong>Blazas.com</strong> is provided for informational purposes only. While we strive for accuracy, we make no guarantees.</p>
+
+    <h2>No Liability</h2>
+    <p>We are not liable for any losses or damages from using our content or services.</p>
+
+    <h2>External Links</h2>
+    <p>Our site may contain links to third-party websites. We are not responsible for their content, privacy policies, or practices.</p>
+
+    <h2>Ads & Endorsements</h2>
+    <p>We may show ads from third parties. These ads do not mean we endorse the products or services.</p>
+  </div>
+
+
+  <section class="footer-section">
+
+  </section>
+  <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+  
+</body>
+</html>

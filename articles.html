@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Articles</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(100deg, rgb(255, 255, 255), rgb(214, 214, 214), rgb(226, 226, 226));
+    }
+    .heading{
+      margin: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+    .heading h1 {
+      padding: 15px;
+      font-size: 35px;
+      color: #363636;
+    }
+    .heading p{
+     padding: 5px;
+     font-weight: 500;
+     font-size: 20px;
+    }
+    #featured-article {
+      max-width: 70vw;
+      margin: 20px auto;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: rgb(255, 255, 255);
+      transition: all .5s linear;
+    }
+
+    #featured-article a {
+      text-decoration: none;
+      color: rgb(88, 88, 88);
+    }
+
+    #featured-article:hover {
+      transform: scale(1.018);
+    }
+
+    #featured-article img {
+      width: 100%;
+      max-height: 80vh;
+      min-height: 200px;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 8px;
+    }
+
+    .article-title-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px 20px;
+    }
+
+    .article-title-1 h2 {
+      padding: 10px 0;
+    }
+
+/*
+=====
+MAIN
+=====
+*/
+
+    main {
+      margin-top: 50px;
+      display: flex;
+      border-top: 3px solid rgb(201, 201, 201);
+    }
+    main img{
+      min-height: 180px;
+      min-width: 220px;
+    }
+    aside {
+      height: 80vh;
+      width: 25vw;
+      position: sticky;
+      top: 20vh;
+      left: 0;
+      overflow-y: scroll;
+      background-color: azure;
+    }
+
+    aside::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    aside::-webkit-scrollbar-track {
+      background: rgb(216, 216, 216);
+    }
+
+    aside::-webkit-scrollbar-thumb {
+      background-color: rgb(200, 200, 200);
+      border-radius: 0.5px;
+    }
+
+    .aside-container {
+      margin: 20px;
+    }
+    aside h3{
+      font-size: 25px;
+      padding: 10px 0;
+      color: #363636;
+    }
+    .aside-container ul li{
+      padding: 5px 3px;
+    }
+    .aside-container ul li a{
+      color: #231844;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .aside-container ul li:hover{
+      background-color: #e3e3e3;
+    }
+    /*
+ ==================
+ Articles container
+ ==================
+ */
+    #articles-container {
+      width: 75vw;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    .article-card {
+      background-color: rgb(255, 255, 255);
+      width: 65vw;
+      margin: 10px auto;
+      border-radius: 8px;
+      border:2px solid rgba(141, 141, 141, 0) ;
+      transition: all .5s linear;
+    }
+
+    .article-card img {
+      max-height: 70vh;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 8px;
+    }
+    .article-card a{
+      text-decoration: none;
+      color: #515151;
+    }
+     .article-card:hover {
+      transform: scale(1.018);
+      border: 2px solid rgba(171, 171, 171, 0.536);
+    }
+    .article-title-2{
+      padding: 10px;
+      margin: 10px;
+    }
+    .article-title-2 h2{
+      padding: 10px 0;
+      font-size: 22px;
+    }
+    .a-detail{
+      padding: 5px;
+      color: #a8a8a8;
+    }
+    @media(max-width:700px){
+      aside{
+        width: 23vw;
+      }
+      aside h3{
+      font-size: 15px;
+      }
+      .aside-container {
+      margin: 5px;
+    }
+     .aside-container ul li{
+      padding: 2px 1.5px;
+    }
+    .aside-container ul li a{
+      font-size: 13px;
+    }
+     #featured-article {
+      max-width: 85vw;
+    }
+
+    #featured-article img {
+      width: 100%;
+      max-height: 80vh;
+    }
+
+    .article-title-1 {
+      gap: 3px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    .article-title-1 h2 {
+      font-size: 20px;
+      padding: 5px 0;
+    }
+
+
+
+ #articles-container {
+      width: 77vw;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    .article-card {
+      width: 70vw;
+      height: max-content;
+      font-size: 14px;
+    }
+    .article-title-2{
+      margin: 5px;
+    }
+    .article-title-2 h2{
+      padding: 4px 0;
+      margin-bottom: 4px;
+      font-size: 19px;
+    }
+    .a-detail{
+      padding: 5px;
+      color: #a8a8a8;
+    }
+
+
+
+
+    }
+    @media(max-width:400px){
+      aside h3{
+      font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<section class="header-section">
+
+</section>
+<script>
+  async function loadHeader() {
+    try {
+      const res = await fetch('header.txt');
+      if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+      const html = await res.text();
+
+      const headerEl = document.querySelector('.header-section');
+      headerEl.innerHTML = html;
+
+      const s = document.createElement('script');
+      s.src = 'header.js';
+      s.onload = () => {
+        // init function exported in header.js
+        if (window.initHeader) window.initHeader();
+      };
+      s.onerror = (err) => console.error('Failed to load header.js', err);
+      document.head.appendChild(s);
+
+    } catch (err) {
+      console.error('Error loading header:', err);
+    }
+  }
+  loadHeader();
+</script>
+<div class="heading">
+  <h1>Latest Articles</h1>
+</div>
+
+<div id="featured-article"></div>
+<main>
+  <aside>
+    <div class="aside-container">
+      <h3>
+        Explore our Latest Articles In
+      </h3>
+      <div class="list">
+        <ul>
+          <li><a href="articles.html?search=science">Science</a></li>
+          <li><a href="articles.html?search=Technology">Technology</a></li>
+          <li><a href="articles.html?search=geography">Geography</a></li>
+          <li><a href="articles.html?search=space">Space</a></li>
+          <li><a href="articles.html?search=universe">Universe</a></li>
+        </ul>
+        <ul class="ul-2">
+
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <div id="articles-container"></div>
+</main>
+ <section class="footer-section">
+
+  </section>
+  <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+<script>
+function Textcut(selector, wordLimit) {
+  document.querySelectorAll(selector).forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    if (words.length > wordLimit) {
+      el.textContent = words.slice(0, wordLimit).join(" ") + "..Read More";
+    }
+  });
+}
+
+function timeAgo(dateString) {
+  const date = new Date(dateString);
+  const now = new Date();
+  const seconds = Math.floor((now - date) / 1000);
+
+  const intervals = {
+    year: 31536000,
+    month: 2592000,
+    week: 604800,
+    day: 86400,
+    hour: 3600,
+    minute: 60,
+  };
+
+  for (let [unit, value] of Object.entries(intervals)) {
+    const count = Math.floor(seconds / value);
+    if (count >= 1) {
+      return `${count} ${unit}${count > 1 ? "s" : ""} ago`;
+    }
+  }
+  return "just now";
+}
+
+async function loadArticles() {
+  const params = new URLSearchParams(window.location.search);
+  const query = params.get("search")?.toLowerCase() || "";
+
+  try {
+    const res = await fetch("Articles/article.json");
+    const articles = await res.json();
+
+    // Sort by date (latest first)
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Filter by search if query exists
+    let filteredArticles = articles;
+    if (query) {
+      
+      filteredArticles = articles.filter(a =>
+        a.title.toLowerCase().includes(query) ||
+        a.category.toLowerCase().includes(query) ||
+        a.author.toLowerCase().includes(query)
+      );
+    }
+
+    // Separate containers
+    const featuredContainer = document.getElementById("featured-article");
+    const listContainer = document.getElementById("articles-container");
+    const articleList = document.querySelector(".ul-2");
+    const pageTitle = document.querySelector(".heading"); 
+
+    featuredContainer.innerHTML = "";
+    listContainer.innerHTML = "";
+    if (articleList) articleList.innerHTML = ""; // safety check
+
+    // If no results found
+    if (filteredArticles.length === 0) {
+      listContainer.innerHTML = `<p style="font-size:18px; padding:20px;">:)No articles found for "${query}".</p>`;
+      return;
+    }
+  let lengthOf = filteredArticles.length
+    // 🔹 CHANGE 1: If search is active → show only in articles-container
+    if (query) {
+      if (pageTitle) pageTitle.innerHTML += `<p>Found ${lengthOf} Article(s) for "${query}"</p>`; 
+
+      filteredArticles.forEach(article => {
+        const div = document.createElement("div");
+        div.className = "article-card";
+        div.innerHTML = `
+          <a href="article.html?Article=${article.Article}">  
+            <div class="loader"></div>
+            <img src="${article.mainImage}" alt="${article.title}" class="article-images" onload="this.style.display='block'; this.style.border='none'; this.previousElementSibling.style.display='none';">
+            <div class="article-title-2">
+              <h2>${article.title}</h2>
+              <div class="article-meta">${timeAgo(article.date)} &nbsp;•&nbsp; ${article.duration}&nbsp; •&nbsp;  ${article.author}</div>
+              <p>Category: <strong>${article.category}</strong></p>
+            </div>
+          </a>
+        `;
+        listContainer.appendChild(div);
+      });
+
+      return; // stop here → don’t add featured
+    }
+   
+    if (filteredArticles.length > 0) {
+      const latest = filteredArticles[0];
+      const readM = latest.content.find(item => item.type === "paragraph")?.text || "";
+      const div = document.createElement("div");
+      div.className = "featured-article-card";
+      div.innerHTML = `
+        <a href="article.html?Article=${latest.Article}">
+          <img src="${latest.mainImage}" alt="${latest.title}" class="article-images">
+          <div class="article-title-1">
+            <h2><strong>${latest.title}</strong></h2>
+            <div class="article-meta">${timeAgo(latest.date)} &nbsp;• &nbsp; ${latest.author}</div>
+            <p class="a-detail">${readM}</p>
+          </div>
+        </a>
+      `;
+      featuredContainer.appendChild(div);
+      Textcut(".a-detail", 5);
+    }
+
+    // Handle the rest
+    filteredArticles.slice(1).forEach(article => {
+      const div = document.createElement("div");
+      const readM = article.content.find(item => item.type === "paragraph")?.text || "";
+      div.className = "article-card";
+      div.innerHTML = `
+        <a href="article.html?Article=${article.Article}">  
+          <img src="${article.mainImage}" alt="${article.title}" class="article-images">
+          <div class="article-title-2">
+            <h2>${article.title}</h2>
+            <div class="article-meta">${timeAgo(article.date)}&nbsp;•&nbsp;${article.author}</div>
+            <p class="a-detail">${readM}</p>
+          </div>
+        </a>
+      `;
+      listContainer.appendChild(div);
+      Textcut(".a-detail", 8);
+    });
+
+  } catch (err) {
+    document.getElementById("articles-container").textContent = "Failed to load articles.";
+    console.error(err);
+  }
+}
+
+loadArticles();
+
+</script>
+
+</body>
+
+</html>

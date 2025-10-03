@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact US</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    h1{
+        padding: 100px 100px;
+        text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="header-section">
+
+  </section>
+  <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+<h1>
+   🚧 
+ Page is under construction.
+</h1>
+
+
+  <section class="footer-section">
+
+  </section>
+  <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+</body>
+
+</html>

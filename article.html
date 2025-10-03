@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article</title>
+  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Alishan551797/css-cdn-links@main/css/all.css">
+  <link rel="icon" type="image/png" href="img/fav.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body{
+      background: white;
+    }
+    main{
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    main p{
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: rgb(67, 67, 67);
+    }
+    h1{
+      font-size: 40px;
+      padding: 20px;
+    }
+    main img{
+      width: 100%;
+      max-height: 100vh;
+      min-height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: center center;
+      margin-top: 30px;
+    }
+    .Main-img{
+      margin: 10px 10px 20px 10px;
+    }
+    .article-values p{
+      padding: 10px;
+      display: flex;
+      font-size: 20px;
+      column-gap: 5px;
+      align-items: center;
+
+    }
+    .article-values i{
+      margin-left: 15px;
+    }
+    .image-caption{
+      font-style: oblique;
+      margin-bottom: 30px;
+    }
+    .p-div{
+      padding-bottom: 20px;
+      padding-left: 20px;
+      font-family: Arial;
+      font-size: 18px;
+      word-spacing: 5px;
+    }
+    
+    .h2{
+      margin: 5px;
+      padding-top:13px ;
+      padding-bottom: 5px;
+      padding-left: 20px;
+      color: rgb(77, 77, 77);
+    }
+    .pull-quote{
+      border-left: 4px solid gray;
+      background-color: rgb(228, 246, 255);
+      color: rgb(98, 98, 98);
+      font-size: 19px;
+      font-style: italic;
+      margin: 20px;
+      padding: 17px;
+      border-radius: 5px;
+    }
+    .s-image-div{
+      position: relative;
+    }
+    .s-image{
+     float: right;   
+     border-radius: 7px;         
+      max-width: 300px;          
+      margin: 0 0 12px 15px; 
+    }
+    .s-image p{
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .s-image img{
+      margin: 3px;
+      padding: 3px;
+     border: 1.2px solid rgb(202, 202, 202);  
+    }
+    .s-image-div p{
+      padding: 10px;
+      font-size: 18px;
+      word-spacing: 5px;
+      text-align: justify;
+    }
+    @media(max-width:850px){
+       main{
+      max-width: 92vw;
+      margin: 20px auto;
+    }
+          .s-image{
+            max-width: 250px;
+          }
+          .s-image-div{
+            max-width: 95vw;
+          }
+          .s-image-div{
+            padding: 7px;
+            font-size: 15px;
+            word-spacing: 2px;
+          }
+          .article-values i{
+            margin-left: 7px;
+          }
+          .article-values p{
+            font-size: 13px;
+            padding: 5px;
+          }
+    }
+    @media(max-width:500px){
+      .Main-img{
+      margin: 8px;
+    }
+      .article-values i{
+        margin-left: 5px;
+      }
+      .article-values p{
+        padding: 3px;
+      }
+      .s-image{
+        max-width: 200px;
+      }
+      .s-image-div p{
+        font-size: 14px;
+      }
+      p b{}
+    }
+    @media(max-width:350px){
+      .s-image{
+        float: none;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="header-section">
+
+  </section>
+  <script>
+    async function loadHeader() {
+      try {
+        const res = await fetch('header.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.header-section');
+        headerEl.innerHTML = html;
+
+        const s = document.createElement('script');
+        s.src = 'header.js';
+        s.onload = () => {
+          // init function exported in header.js
+          if (window.initHeader) window.initHeader();
+        };
+        s.onerror = (err) => console.error('Failed to load header.js', err);
+        document.head.appendChild(s);
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadHeader();
+  </script>
+
+  <main id="article-container"></main>
+   
+  <section class="footer-section">
+
+  </section>
+  <script>
+    async function loadfooter() {
+      try {
+        const res = await fetch('footer.txt');
+        if (!res.ok) throw new Error('header fetch failed: ' + res.status);
+        const html = await res.text();
+
+        const headerEl = document.querySelector('.footer-section');
+        headerEl.innerHTML = html;
+
+
+
+      } catch (err) {
+        console.error('Error loading header:', err);
+      }
+    }
+    loadfooter();
+  </script>
+  <script src="Articles/article.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+ <footer>
+      <div class="footer-div">
+        <div class="footer-section footer-section1">
+          <div class="wp-chat">
+            <h2>Want To Chat on Whatsapp</h2>
+            <p>If you are interested in asking some Question</p>
+            <a href="https://wa.me/923045811000"><button>
+                <span> Lets Chat </span>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section footer-section2">
+         <div class="footer-links">
+          <h3>Policies</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie.html">Cookie policy</a></li>
+          </ul>
+        </div>
+          <div class="footer-links">
+            <h3>ABOUT</h3>
+            <ul>
+              <li><a href="">Our Companies</a></li>
+              <li><a href="">Our Blogs</a></li>
+              <li><a href="">Our Shop</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>SUPPORT</h3>
+            <ul>
+              <li><a href="">Whatsapp</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Chat</a></li>
+            </ul>
+          </div>
+
+
+          <div class="footer-links follow-us">
+            <h3>FOLLOW US</h3>
+            <ul>
+              <li><a href=""><i class="fa-brands fa-whatsapp wp"></i></a></li>
+              <li><a href=""><i class="fa-brands fa-youtube yt"></i></a></li>
+              <li><a href=""><i class="fa-brands fa-instagram insta"></i></a></li>
+              <li><a href=""><i class="fa-brands fa-x-twitter x"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-section footer-section3">
+          <div class="copyright">© Copyright 2025 Blazas | All right reserved</div>
+        </div>
+      </div>
+
+    </footer>
